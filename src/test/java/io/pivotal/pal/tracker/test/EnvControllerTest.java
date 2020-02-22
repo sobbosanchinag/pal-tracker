@@ -28,6 +28,7 @@ public class EnvControllerTest {
         env.put("MEMORY_LIMIT", "NOT SET");
         env.put("CF_INSTANCE_INDEX", "NOT SET");
         env.put("CF_INSTANCE_ADDR", "NOT SET");
+        env.put("WELCOME_MESSAGE","Hello from test");
         ResponseEntity<Map> response = restTemplate.getForEntity(new URL(baseUrl).toString(), Map.class);
         assertEquals(env,response.getBody());
     }

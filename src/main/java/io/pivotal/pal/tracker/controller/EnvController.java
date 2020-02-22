@@ -13,13 +13,17 @@ public class EnvController {
     private final String memoryLimit;
     private final String cfInstanceIndex;
     private final String cfInstanceAddress;
+    private final String welcomeMsg;
+
 
     public EnvController(
+            @Value("${welcome.message:NOT SET}") String welcomeMsg,
             @Value("${port:NOT SET}") String port,
             @Value("${memory.limit:NOT SET}") String memoryLimit,
             @Value("${cf.instance.index:NOT SET}") String cfInstanceIndex,
             @Value("${cf.instance.addr:NOT SET}") String cfInstanceAddress
     ) {
+        this.welcomeMsg = welcomeMsg;
         this.port = port;
         this.memoryLimit = memoryLimit;
         this.cfInstanceIndex = cfInstanceIndex;
@@ -33,6 +37,7 @@ public class EnvController {
         env.put("MEMORY_LIMIT", memoryLimit);
         env.put("CF_INSTANCE_INDEX", cfInstanceIndex);
         env.put("CF_INSTANCE_ADDR", cfInstanceAddress);
+        env.put("WELCOME_MESSAGE",welcomeMsg);
         return env;
     }
 }
