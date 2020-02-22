@@ -23,13 +23,15 @@ public class EnvControllerTest {
     public void testImplementation() throws IOException {
         RestTemplate restTemplate = new RestTemplate();
         String baseUrl = "http://localhost:"+randomServerPort+"/env";
-        Map<String, String> env = new HashMap<>();
-        env.put("PORT", "NOT SET");
+        //Map<String, String> env = new HashMap<>();
+
+        /*env.put("PORT", "NOT SET");
         env.put("MEMORY_LIMIT", "NOT SET");
         env.put("CF_INSTANCE_INDEX", "NOT SET");
-        env.put("CF_INSTANCE_ADDR", "NOT SET");
-        env.put("WELCOME_MESSAGE","Hello from test");
-        ResponseEntity<Map> response = restTemplate.getForEntity(new URL(baseUrl).toString(), Map.class);
+        env.put("CF_INSTANCE_ADDR", "NOT SET");*/
+        //env.put("WELCOME_MESSAGE","Hello from test");
+        String env="Hello from test";
+        ResponseEntity<String> response = restTemplate.getForEntity(new URL(baseUrl).toString(), String.class);
         assertEquals(env,response.getBody());
     }
 }
