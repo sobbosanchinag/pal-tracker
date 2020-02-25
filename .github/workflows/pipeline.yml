@@ -16,6 +16,7 @@ jobs:
     - name: Build with Gradle
       run: ./gradlew build
     - name: Publish artifact
+      run: chmod +x ./gradlew
       uses: actions/upload-artifact@v1
       with:
         name: pal-tracker
